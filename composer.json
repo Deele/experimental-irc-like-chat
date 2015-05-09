@@ -1,0 +1,70 @@
+{
+	"name": "Deele/experiment-irc-like-chat",
+	"description": "This is experimental project as an attempt to crete IRC like (channels and users) chat server and client.",
+	"type": "project",
+	"keywords": [
+		"php",
+		"yii2",
+		"framework",
+		"chat",
+		"IRC"
+	],
+	"homepage": "https://github.com/Deele/experimental-irc-like-chat",
+	"license": "(GPL-2.0 and BSD-3-Clause)",
+	"authors": [
+		{
+			"name": "Nils L.",
+			"email": "nils@dfworks.lv",
+			"homepage": "http://www.dfworks.lv",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "nils@dfworks.lv",
+		"issues": "https://github.com/Deele/experimental-irc-like-chat/issues",
+		"source": "https://github.com/Deele/experimental-irc-like-chat",
+		"irc": "irc://irc.freenode.org/developerslv"
+	},
+	"require": {
+		"php": ">=5.5.0",
+		"yiisoft/yii2": "*",
+		"yiisoft/yii2-bootstrap": "*",
+		"yiisoft/yii2-swiftmailer": "*"
+	},
+	"require-dev": {
+		"yiisoft/yii2-codeception": "*",
+		"yiisoft/yii2-debug": "*",
+		"yiisoft/yii2-gii": "*",
+		"yiisoft/yii2-faker": "*",
+		"codeception/codeception": "*",
+		"codeception/specify": "*",
+		"codeception/verify": "*"
+	},
+	"minimum-stability": "stable",
+		"config": {
+			"process-timeout": 1800
+		},
+		"scripts": {
+			"post-create-project-cmd": [
+				"yii\\composer\\Installer::postCreateProject"
+			]
+		},
+		"extra": {
+			"yii\\composer\\Installer::postCreateProject": {
+				"setPermission": [
+					{
+						"runtime": "0777",
+						"web/assets": "0777",
+						"yii": "0755"
+					}
+				],
+				"generateCookieValidationKey": [
+					"config/web.php"
+				]
+			},
+			"asset-installer-paths": {
+				"npm-asset-library": "vendor/npm",
+				"bower-asset-library": "vendor/bower"
+			}
+		}
+}
